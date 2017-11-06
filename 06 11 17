@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+struct musica{
+	char nome[100];
+	char estilo[100];
+	int rank;
+};
+typedef struct musica Musica;
+
+int main (void){
+	int i;
+	Musica a[3];
+	
+	for (i=0; i<3; i++){
+		
+		printf ("Digite a musica:\n");
+		gets (a[i].nome);
+		
+		printf ("Digite o estilo musical:\n");
+		gets (a[i].estilo);
+		
+		printf ("Digite o rank da musica:\n");
+		scanf ("%d",&a[i].rank);
+		
+		getchar();
+	}
+	for (i=0; i<3; i++){
+		printf ("Musica: %s\nEstilo Musical: %s\nRanking: %d\n", a[i].nome, a[i].estilo, a[i].rank);
+	}
+}

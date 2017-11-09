@@ -1,51 +1,56 @@
 #include <stdio.h>
 #include <locale.h>
-
-struct musica{
-char nome[100];
-char estilo[100];
-int rank;
+ 
+struct musica {
+	char nome[100];
+	char estilo[100];
+	int rank;
 };
-
+ 
 typedef struct musica Musica;
-
+ 
 int main (void){
-int i,j,aux;
-Musica a[8];
-
-setlocale(LC_ALL, "Portuguese");
-
-for (i=0; i<4; i++){
-
-    printf ("Nome da música: ");
-    gets (a[i].nome);
-
-    printf ("Estilo musical: ");
-    gets (a[i].estilo);
-
-    printf ("Ranking da música: ");
-    scanf ("%d",&a[i].rank);
-
-    printf ("\n\n");
-
-    getchar();
-}
-//RANKING DIGITADO DESORDENADO
-for (i=0; i<4; i++){
-    printf ("RANK %d\t%s\t%s\t\n", a[i].rank, a[i].nome, a[i].estilo);
-}
-    for (i=0; i<4; i++){
-        for (j=i+1; j<8; j++){
-            if (a[i].rank > a[j].rank){
-                aux = a[i].rank;
-                a[i].rank = a[j].rank;
-                a[j].rank = aux;
-                }
-            }
-        }
-printf ("\n");
-//RANKING ORDEM
-for (i=0; i<4; i++){
-    printf ("RANK %d\t%s\t%s\t\n", a[i].rank, a[i].nome, a[i].estilo);
-}
+	int i,j,aux;
+	Musica a[8];
+ 
+ 
+	setlocale(LC_ALL, "Portuguese");
+ 
+	for (i=0; i<4; i++) {
+ 
+		printf ("Nome da música: ");
+		gets (a[i].nome);
+ 
+		printf ("Estilo musical: ");
+		gets (a[i].estilo);
+ 
+		printf ("Ranking da música: ");
+		scanf ("%d",&a[i].rank);
+ 
+		printf ("\n\n");
+ 
+		getchar();
+	}
+	
+	for (i=0; i<4; i++) {
+		printf ("RANK %d\t%s\t%s\t\n", a[i].rank, a[i].nome, a[i].estilo);
+	}
+ 
+	Musica temp;
+ 
+	for (i=0; i<4; i++) {
+		for (j=i+1; j<4; j++) {
+			if (a[i].rank > a[j].rank) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+			}
+		}
+	}
+	
+	printf ("\n");
+	
+	for (i=0; i<4; i++) {
+		printf ("RANK %d\t%s\t%s\t\n", a[i].rank, a[i].nome, a[i].estilo);
+	}
 }

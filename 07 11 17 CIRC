@@ -5,9 +5,9 @@
 void bin_para_dec(){
 	int bin, dec=0, i;
 	
-	setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL,"");
 	
-	printf ("Digite um número binario: ");
+	printf ("Digite um número binário: ");
 	scanf ("%d",&bin);
 	
 	for (i=0; bin>0; i++){
@@ -20,26 +20,31 @@ void bin_para_dec(){
 
 void dec_para_bin(){
 
-	int num;
-	char aux[50];
+	int i=0, j, n, a[100];
 	
-	setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL,"");
 	
 	printf ("Digite um número decimal: ");
-	scanf ("%d",&num);
+	scanf ("%d", &n);
 	
-	num = num / 2;
-	
-	printf ("Binario: %d",num);
+	while (n > 0){
+		a[i]  = n % 2;
+		n /= 2;
+		++i;
+	}
+	printf ("Binário: ");
+	for (j = i-1; j>=0; --j){
+		printf ("%d",a[j]);
+	}
 }
 
 void Menu(){
 	int opcao = 0;
 	
-	setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL,"");
 	
-	printf ("1 - Binario para Decimal\n");
-	printf ("2 - Decimal para Binario\n");
+	printf ("1 - Binário para Decimal\n");
+	printf ("2 - Decimal para Binário\n");
 	printf ("Opção: ");
 	scanf ("%d",&opcao);
 	printf ("\n");
@@ -51,7 +56,7 @@ void Menu(){
 		dec_para_bin();
 		}
 	else if (opcao != 1 && opcao !=2){
-		printf ("Informe um opção valida...\n\n");
+		printf ("Opção invalida...\n\n");
 		Menu();
 	}
 	}

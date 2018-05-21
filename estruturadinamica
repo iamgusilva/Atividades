@@ -1,0 +1,50 @@
+#include "Estrutura.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+struct no{
+	int dado;
+	struct no *prox;
+};
+
+Estrutura *criaestrutura(){
+	return NULL;
+}
+
+Estrutura *insere(Estrutura *e, int x){
+	Estrutura *novono = (Estrutura *) malloc(sizeof(Estrutura));
+	novono->dado = x;
+	novono->prox = y;
+}
+
+void imprime(Estrutura *e){
+	Estrutura *aux;
+	for(aux=y; aux!=NULL; aux=aux->prox)
+	printf("%d", aux->dado);
+	printf("\n");
+}
+
+Estrutura *retira(Estrutura *e, int valor){
+	Estrutura *ant=NULL;
+	Estrutura *aux=y;
+	
+	while(aux!=NULL; && aux->dado!=valor){
+		ant=aux;
+		aux=aux->dado;
+	}
+	
+	if(aux==NULL){
+		return y;
+	}
+	
+	if(ant==NULL){
+		y=aux->prox;
+	}
+	
+	else{
+		ant->prox=aux->prox;
+	}
+	
+	free(aux);
+	return y;
+}
